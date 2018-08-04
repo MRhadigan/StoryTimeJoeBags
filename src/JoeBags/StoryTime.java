@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package JoeBags;
+
+/**
+ * @author matthewrhadigan
+ *
+ */
+public class StoryTime {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
