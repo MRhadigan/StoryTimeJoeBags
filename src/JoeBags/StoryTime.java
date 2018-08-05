@@ -21,44 +21,74 @@ public class StoryTime {
 		boolean userShot = true;
 		String shoot = "y";
 		
-//		Weapon a = new Gun("Sig 226", 1, 45);
-//		System.out.println(a);
-	
-		Gun sniper = new Gun();
-		sniper.setName("Barret .50 cal");
-		sniper.setDmg(10);
-		sniper.setRange(600);
-		sniper.setMagCap(5);  
-		System.out.println(sniper);
-		
-		Gun c = new Gun();
-		c.setMagCap(18);
 
+	
+//		Gun sniper = new Gun();
+//		int startingRounds = 5;
+//		sniper.setName("Barret .50 cal");
+//		sniper.setDmg(10);
+//		sniper.setRange(600);
+//		sniper.setMagCap(5);
+//		sniper.setMagCap(updateRoundsInMag (sniper, startingRounds));  
+//		System.out.println(sniper);
+
+		Gun pistol = new Gun();
+		pistol.setRoundsInMag(15);
+		pistol.setName("Sig 226");
+		pistol.setDmg(1);
+		pistol.setRange(45);
+		pistol.setMagCap(15);
 		
 		
-		 
+	
+		
+		if(pistol.getRoundsInMag() == pistol.getMagCap()) {
+			System.out.println("This weapon has a full magazine of " + pistol.getRoundsInMag() + " rounds.");
+		}
+		 else {System.out.println("This weapon has " + pistol.getRoundsInMag() + " rounds.");
+		 }
+		
+		
 		do {
-			int r = sniper.getMagCap();
-			if (r > 0) {
-				System.out.println("Would you like to take a shot? y/n");
-				shoot = scan.nextLine();
-				r -= 1;
-				sniper.setMagCap(r);
-				System.out.println("There are " + sniper.getMagCap() + " rounds left in your magazine");
-			} 
-			else if (sniper.getMagCap() == 0) { 
-				System.out.println("Your " + sniper.getName() + " needs to be relaoded!");
-				break;
-			}
-		} while (shoot.equalsIgnoreCase("y"));
+			System.out.println("would you like to take a shot? y/n");
+			shoot = scan.nextLine();
+			pistol.setRoundsInMag(updateRoundsInMag(pistol, pistol.getRoundsInMag()));
+		} while (shoot.equalsIgnoreCase("y") && pistol.getRoundsInMag() > 0);
+		pistol.setRoundsInMag(updateRoundsInMag(pistol, pistol.getRoundsInMag()));
 		
-		
-				
-				
-		
-		
+			
 		
 		
 	}
-
+				
+	
+	//custom methods start here.
+	
+	
+		public static int updateRoundsInMag (Gun used, int r)  {
+		//This method subtracts a round from the Gun RoundsInMag method.	
+				r = used.getRoundsInMag();
+				if (r > 0) {
+					r = r - 1;
+					used.setRoundsInMag(r);
+					System.out.println("There are " + used.getRoundsInMag() + " rounds left in your magazine");
+					
+				} 
+				else  { 
+					System.out.println("Your " + used.getName() + " needs to be reloaded!");
+					
+				}return r;
+			
+		}
 }
+		
+		
+		
+	
+
+	
+	
+	
+
+
+

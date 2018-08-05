@@ -4,6 +4,7 @@ public class Gun extends Weapon {
 
 	private int magCap; // amount of ammo a gun can hold
 	private boolean attachment;
+	private int roundsInMag;
 
 	public Gun() {
 		
@@ -55,15 +56,23 @@ public class Gun extends Weapon {
 		this.attachment = attachment;
 	}
 
+	public int getRoundsInMag() {
+		return roundsInMag;
+	}
+	
+	public void setRoundsInMag(int startingAmmo) {
+		this.roundsInMag = startingAmmo;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return getName() + " Damage output = " +  getDmg() + " " + magCap + " rounds left";
+		return getName() + " Damage output = " +  getDmg() + " " + magCap + " round magazine";
 
 	}
+
 	
 	
 }
